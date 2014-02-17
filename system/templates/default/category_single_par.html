@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{if $cat['seo_title']==''}{$cat['catname']}{else}{$cat['seo_title']}{/if}</title>
+<meta name="Keywords" content="{$cat['seo_key']}" />
+<meta name="Description" content="{$cat['seo_des']}" />
+<base href="{$config['siteurl']}">
+{include file="default/header_js.html"}
+</head>
+
+<body>
+<center>
+
+<div id="wraper">
+{include file="default/header.html"}
+<!--页面中间内开始容-->
+<div class="homeCon">
+	<!--mainBox starts here-->
+	<div class="mainBox">
+		<!--mainRoute-->
+		<div class="mainRoute">当前位置：<a href="/">首页</a>  
+		> {$cat['catname']}		 </div>
+		<!--mainNav-->
+		<div class="mainNav">
+			   {include file="default/left.html"}
+		</div>
+		
+<div class="mainCon">	
+	<!--mainThird starts here-->	
+	<div class="mainThird">
+		<div style="width: 720px; height: 115px; background: url('{$image_path}tobe.png') repeat scroll 0% 0% transparent;"><img src="{$image_path}partner.gif" border="0"></div>
+		<div class="mainConHr3_0"></div>
+		<div class="main3Tl_0">软件合作伙伴计划</div>
+		<div class="main3Con" style="margin-top: 10px;">
+			{loop catid=$cat['catid'] rows=1 order='catid asc'}
+				{loop catid=$r['catid'] more=1 rows=1}
+				{$r['content']}
+				{/loop}
+			{/loop}
+			
+			
+		</div>
+		
+	</div><!--mainThird ends here-->
+</div><!--mainCon ends here-->
+
+
+
+
+		<div class="footLine"></div>
+	</div>
+  	<!--mainBox ends here-->
+</div>
+<!--页面中间内容结束-->
+
+{include file="default/footer.html"}
+
+</div></center>
+</body>
+</html>

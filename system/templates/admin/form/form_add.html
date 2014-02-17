@@ -1,0 +1,58 @@
+{include file="admin/top.html"}
+<table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="tableBorder">
+  <tr>
+    <th height="25">自定义表单管理</th>
+  </tr>
+  <tr>
+    <td height=25 class="pl20"><b>管理选项：</b><a href="index.php?m=form&c=form">管理首页</a> | <a href="index.php?m=form&c=form&f=form_add">添加表单</a> | <a href="index.php?m=form&c=form&f=cache">更新表单缓存</a> | [<a href="javascript:location.reload()">刷新页面</a>]</td>
+  </tr>
+</table>
+<table width="100%" border="0" align="center" cellspacing="1" cellpadding="2" class="tableBorder mt6">
+<form name="addform" action="index.php?m=form&c=form&f=form_add_save" method="post">
+    <tr>
+    <th colspan="4">添加表单</th>
+  </tr>
+  <tr>
+    <td align="right">表单名称：</td>
+    <td colspan="3"><input type="text" name="formname" class="txt" size="30" id="formname"></td>
+  </tr>
+  <tr>
+    <td align="right">表单数据表:</td>
+    <td colspan="3"><input type="text" name="formtable" class="txt" size="30" id="formtable"></td>
+  </tr>
+  <tr>
+    <td align="right">是否开启:</td>
+    <td colspan="3">
+      <input name="is_lock" type="radio" id="is_lock" value="1" checked="checked" />
+      是 
+      <input type="radio" name="is_lock" id="is_lock" value="0" />
+      否</td>
+  </tr>
+  <tr>
+    <td align="right">是否固定:</td>
+    <td colspan="3">
+      <input name="is_fixed" type="radio" id="is_fixed" value="1" />
+      是 
+      <input name="is_fixed" type="radio" id="is_fixed" value="0" checked="checked" />
+      否</td>
+  </tr>
+  <tr>
+    <td align="right">是否自动发送Email:</td>
+    <td colspan="3">
+      <input name="is_email" type="radio" id="is_email" value="1" />
+      是 
+      <input type="radio" name="is_email" id="is_email" value="0" checked="checked" />
+      否</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="right" class="tdpage">
+      <input type="submit" name="submit" value=" 保 存 " class="inputs" /></td>
+    </tr>
+  </form>
+</table>
+<table border="0" align="center" cellpadding="2" cellspacing="1" class="tableBorder" style="margin-top:6px; margin-bottom:10px;">
+<tr align=center>
+<td width="100%" class=copyright>Copyright (c) 2011-2015<a href="http://www.headchina.com.cn" target="_blank"><font color=#708796><b>北京市北科信息处理公司</b></font></a>, All Rights Reserved ,</td>
+</tr></table>
+</body>
+</html>

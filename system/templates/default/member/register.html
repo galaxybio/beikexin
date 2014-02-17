@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>会员注册</title>
+<base href="{$config['siteurl']}">
+<link href="{$css_path}css.css" type=text/css rel=stylesheet>
+</head>
+
+<body>
+{include file="default12/header.html"}
+<div class="main t5">
+{include file="default12/member/left.html"}
+    <div class="right">
+    	<h1><span><a href="/">首页</a> > 会员注册</span><div>会员注册</div></h1>
+        <div class="content">
+        <table width="100%" border="0" cellpadding="1" cellspacing="1" bgcolor="#CCCCCC">
+          <form name="addform" action="index.php?m=member&f=register_save" method="post">
+          <tr>
+            <td width="21%" align="right">用户名：</td>
+            <td width="79%"><input name="username" type="text" id="username" size="20" class="key" /> <font color=#ff0000>*</font></td>
+          </tr>
+          <tr>
+            <td width="21%" align="right">密码：</td>
+            <td width="79%"><input name="password" type="password" id="password" size="21" class="key" /> <font color=#ff0000>*</font></td>
+          </tr>
+          <tr>
+            <td width="21%" align="right">确认密码：</td>
+            <td width="79%"><input name="password2" type="password" id="password2" size="21" class="key" /> <font color=#ff0000>*</font></td>
+          </tr>
+          {$fields}
+          <tr>
+            <td>&nbsp;</td>
+            <td>
+            <input type="submit" name="submit" value=" 注 册 " /></td>
+          </tr>
+          </form>
+        </table>
+        </div>
+    </div>
+</div>
+{include file="default12/footer.html"}
+</body>
+</html>

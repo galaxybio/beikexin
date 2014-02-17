@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{if $cat['seo_title']==''}{$cat['catname']}{else}{$cat['seo_title']}{/if}</title>
+<meta name="Keywords" content="{$cat['seo_key']}" />
+<meta name="Description" content="{$cat['seo_des']}" />
+{include file="default/header_js.html"}
+</head>
+
+<body>
+
+<center>
+
+<div id="wraper" style="margin-top: 18px;">
+{include file="default/header.html"} 
+ 
+<!--页面中间内开始容-->
+<div class="homeCon">
+	<!--mainBox starts here-->
+	<div class="mainBox">
+		<!--mainRoute-->
+		<div class="mainRoute">当前位置：<a href="/">首页</a> >  {$cat['catname']}</div>
+		<!--mainNav-->
+		<div class="mainNav">
+		{include file="default/left_product.html"} 
+		</div>
+		<div class="mainCon">
+			<div class="mainThird">
+				
+				
+				<div style="width: 720px; height: 115px; background: url('{$image_path}core.gif') repeat scroll 0% 0% transparent;"></div>
+			<!--	<div class="mainConHr3_0"></div>
+				<div class="main3Tl_0" style="width: 510px;">{$cat['catname']}</div>
+				<div class="main3Con">
+					
+					
+					{loop catid=$cat['catid'] pages='page'}
+            	
+				
+				<ul class="ulHome">
+					 <a href="{$r.url}" class="aHome mainTl">{$r.title}</a> 日期：{$r.inputtime|date_format:'%Y-%m-%d'}
+				</ul>
+
+
+				{/loop}
+					 
+					 
+					<br>
+              	    <table border="0" cellpadding="0" cellspacing="0">
+<tbody><tr style="font-size: 10pt;" align="center">
+<form name="pagelist" action="http://www.eisoo.com/article/plus/list.php"></form><input name="typeid" value="1" type="hidden">
+<input name="TotalResult" value="200" type="hidden">
+<!--{$pages}-->
+
+</tr>
+</tbody></table>
+
+				</div>
+				-->
+				
+				<div class="pro_erji">
+                <!-- 右侧列表-->
+				 {loop catid=$cat['catid'] order="sort" pages='page' rows="4"}
+                    <ul class="pro_list"><h3>{$r.title}</h3> <a href="{$r.url}"> <img src="{thumb($r.thumb,135,97)}" /></a> <p>{$r.description|truncate_cn:160}..</p> <h4><a href="{$r.url}">More>></a></h4></ul> 
+					
+					{/loop}
+					
+                </div>
+				
+				
+				{$pages}
+			</div>
+		</div>
+		<div class="footLine"></div>
+	</div>
+  	<!--mainBox ends here-->
+</div>
+<!--页面中间内容结束-->
+{include file="default/footer.html"}  
+</div>
+
+</center>
+
+
+
+</body>
+</html>

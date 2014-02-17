@@ -1,0 +1,43 @@
+{include file="admin/top.html"}
+{nocache}
+<table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="tableBorder">
+  <tr>
+    <th height="25">内容管理</th>
+  </tr>
+  <tr>
+    <td height=25 class="pl20"><b>管理选项：</b><a href="index.php?m=form&c=content&formid={$form['id']}">管理首页</a> | [<a href="javascript:location.reload()">刷新页面</a>]</td>
+  </tr>
+</table>
+<table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" class="tableBorder">
+<tr>
+    <th colspan=5 height=25>{$form['form_name']} 内容列表</th>
+</tr>
+<form name="form" action="index.php?m=form&c=content&f=delete" method="post">
+<tr align="center"> 
+    <td width="6%" height=25><input name="checkSelect" type="checkbox" class="checkbox" onClick="javascript: checkAll(this)" value="checkbox"></td>
+    <td width="9%">ID</td>
+    <td width="41%">标题</td>
+    <td width="17%">发布时间</td>
+    <td width="11%">操作</td>
+</tr>
+{loop sql="select * from {$pre}{$form['form_table']} order by id desc" pages="page"}
+<tr align="center"> 
+    <td height=25><input type="checkbox" name="id[]" value="{$r.id}" class="checkbox" /></td>
+    <td>{$r.id}</td>
+    <td align="left">{$r.title}</td>
+    <td>{$r.inputtime|date_format:'%Y-%m-%d'}</td>
+    <td><a href="index.php?m=form&c=content&f=show&formid={$form['id']}&id={$r.id}">详细</a> | <a href="index.php?m=form&c=content&f=delete&formid={$form['id']}&id={$r.id}">删除</a></td>
+</tr>
+{/loop}
+<tr>
+	<td height="25" align="center"><input name="formid" type="hidden" id="formid" value="{$form['id']}" /><input name="submit" type="submit" class="inputs" value=" 删除 " /></td>
+    <td height="25" colspan="4">&nbsp;</td>
+  </tr>
+<tr>
+<td height="25" align="center" colspan="7" class="tdpage">{$pages}</td></tr>
+</form>
+</table>
+{/nocache}
+{include file="admin/footer.html"}
+</body>
+</html>

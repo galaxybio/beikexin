@@ -1,0 +1,11 @@
+<ul class="mainNav1">
+
+
+<li class="mainNav1_0" ><a href="{$cat['url']}">{$cat['catname']}</a></li>
+
+{loop sql="SELECT *  from {$pre}content where catid={$cat['catid']}  order by sort asc" }
+<li  {if $r['title']==$rs['title']}class="mainNav1_on"{else} class="mainNav1_1"{/if}><a href="{$r.url}">{if $r.title=='云存储系统AllWeb'}云存储系统{else if $r.title=='数据挖掘云平台PDMiner'}数据挖掘云平台{else}{$r.title|truncate_cn:9}{/if}</a></li>
+{/loop}
+
+</ul>
+

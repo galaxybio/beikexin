@@ -1,0 +1,25 @@
+{include file="admin/top.html"}
+<table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="tableBorder">
+  <tr>
+    <th height="25">会员组管理</th>
+  </tr>
+  <tr>
+    <td height=25 class="pl20"><b>管理选项：</b><a href="index.php?m=member&c=group">管理首页</a> | <a href="index.php?m=member&c=group&f=add">添加会员组</a> | <a href="index.php?m=member&c=group&f=cache">更新会员组缓存</a> | [<a href="javascript:location.reload()">刷新页面</a>]</td>
+  </tr>
+</table>
+<table width="100%" border="0" align="center" cellspacing="1" cellpadding="2" class="tableBorder mt6">
+<form name="addform" action="index.php?m=member&c=group&f=editsave" method="post">
+    <tr>
+    <th colspan="4">更新会员组</th>
+  </tr>
+  <tr>
+    <td width="24%" align="right">名称：</td>
+    <td width="38%" colspan="2"><input type="text" name="name" class="txt" size="30" value="{$rs.name}"></td>
+    <td width="38%">&nbsp;<input type="submit" name="submit" value=" 保 存 " class="inputs" />
+      <input name="id" type="hidden" id="id" value="{$rs.groupid}" /></td>
+  </tr>
+  </form>
+</table>
+{include file="admin/footer.html"}
+</body>
+</html>

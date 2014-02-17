@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{$form['form_name']}</title>
+<base href="{$config['siteurl']}">
+{include file="default/header_js.html"}
+</head>
+
+<body>
+<center>
+
+<div id="wraper">
+{include file="default/header.html"}
+<!--页面中间内开始容-->
+<div class="homeCon">
+	<!--mainBox starts here-->
+	<div class="mainBox">
+		<!--mainRoute-->
+		<div class="mainRoute">当前位置：<a href="/">首页</a>  &gt; {$form['form_name']}
+			 </div>
+		<!--mainNav-->
+		<div class="mainNav">
+			  
+			   <ul class="mainNav1">
+
+
+<li class="mainNav1_0">{$form['form_name']}</li>
+
+
+<li  class="mainNav1_1"><a href="#">{$form['form_name']}</a></li>
+
+
+</ul>
+		</div>
+		
+<div class="mainCon">	
+	<!--mainThird starts here-->	
+	<div class="mainThird">
+		<div style="width: 720px; height: 115px; background: url('{$image_path}tobe.png') repeat scroll 0% 0% transparent;"><img src="{$image_path}eisoos.gif" border="0"></div>
+		<div class="mainConHr3_0"></div>
+		<div class="main3Tl_0">{$form['form_name']}</div>
+		<div class="main3Con" style="margin-top: 10px;">
+			<table width="100%" border="0" cellpadding="1" cellspacing="1" bgcolor="#ffffff">
+          <form name="addform" action="index.php?m=form&c=lists&f=add_save&formid={$form['id']}" method="post">
+          <tr>
+            <td colspan="2"><b>{$form['form_name']}<br></td>
+          </tr>
+          <tr>
+            <td width="21%" align="right">标题：</td>
+            <td width="79%"><label>
+              <input name="fields[title]" type="text" id="fields[title]" size="35" />
+            </label></td>
+          </tr>
+          {$fields}
+          <tr>
+            <td>&nbsp;</td>
+            <td>
+            <input type="submit" name="submit" value=" 提 交 " /></td>
+          </tr>
+          </form>
+        </table>
+			
+			
+		</div>
+		
+	</div><!--mainThird ends here-->
+</div><!--mainCon ends here-->
+
+
+
+
+		<div class="footLine"></div>
+	</div>
+  	<!--mainBox ends here-->
+</div>
+<!--页面中间内容结束-->
+
+{include file="default/footer.html"}
+
+</div></center>
+
+
+</body>
+</html>

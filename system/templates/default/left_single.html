@@ -1,0 +1,23 @@
+<ul class="mainNav1">
+{$temcatid=1}
+{loop sql="select * from {$pre}category where catname='{$cat['catname']}'" rows="1"}
+	{$temcatid=$r['parentid']}
+	{if $r['parentid']=='0'} <li class="mainNav1_0">{$r['catname']}</li> 
+	{else}
+	{loop sql="select * from {$pre}category where catid='{$temcatid}'" rows="1"}
+	<li class="mainNav1_0">{$r['catname']}</li>
+	{/loop}
+	
+	{/if}
+{/loop}
+
+
+{foreach from=$left_menu item=value }
+<li  {if $value['catname']==$cat['catname']}class="mainNav1_on"{else} class="mainNav1_1"{/if}><a href="{$value['url']}">{$value['catname']}</a></li>
+{loop sql="select * from {$pre}category where parentid='{$value['catid']}'"}
+<li  {if $r['catname']==$cat['catname']}class="mainNav1_on"{else} class="mainNav1_1"{/if}><a href="{$r['url']}">{$r['catname']}</a></li>
+{/loop}
+{/foreach}
+</ul>
+
+{include file="default/left_bottom.html"}

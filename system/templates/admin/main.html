@@ -1,0 +1,31 @@
+{include file="admin/top.html"}
+<table cellpadding="2" cellspacing="1" border="0" class="tableBorder" align=center>
+  <tr>
+    <th colspan=2 height=25>系统信息</th>
+  </tr>
+  <tr>
+   <td width="50%" height=23>PHP程式版本：{$server["version"]}</td>
+   <td width="50%" height=23>Mysql版本：{$server["mysql_version"]}</td>
+  </tr>
+  <tr>
+   <td width="50%" height=23>最大上传限制：{$server["upload"]}</td>
+   <td width="50%" height=23>最大执行时间：{$server["execution"]} seconds </td>
+  </tr>
+  <tr>
+   <td width="50%" height=23>服务器所在时间：{$server["time"]|date_format:'%Y-%m-%d %H:%M:%S'}</td>
+   <td width="50%" height=23>&nbsp;</td>
+  </tr>
+  <tr>
+   <td width="50%" height=23>系统所在目录：{$server["root"]}</td>
+   <td width="50%" height=23>网站版本：{$server["cms_version"]} </td>
+  </tr>
+  <tr>
+   <td height=23 colspan="2">服务器端信息：{$server["software"]}</td>
+  </tr>
+  <tr>
+    <td height=23 colspan="2"><a href="index.php?m=91736&c=data"><font color=red>数据定期备份</font></a>：请注意做好定期数据备份，数据的定期备份可最大限度的保障您站点数据的安全	</td>
+  </tr>
+</table>
+
+</body>
+</html>

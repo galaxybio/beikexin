@@ -1,0 +1,89 @@
+{include file="admin/top.html"}
+{nocache}
+<script charset="utf-8" src="admin/editor/kindeditor.js"></script>
+<script charset="utf-8" src="admin/editor/lang/zh_CN.js"></script>
+<script charset="utf-8" src="admin/editor/plugins/code/prettify.js"></script>
+<script charset="utf-8" src="admin/editor/editor.js"></script>
+<table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="tableBorder">
+  <tr>
+    <th height="25">内容管理</th>
+  </tr>
+  <tr>
+    <td height=25 class="pl20"><b>管理选项：</b><a href="index.php?m=91736&c=content&catid={$catid}">管理首页</a> | <a href="index.php?m=91736&c=content&f=add&catid={$catid}"><span class="f00">发布信息</span></a> | <a href="index.php?m=91736&c=transfer&catid={$catid}">数据转移</a> | [<a href="javascript:location.reload()">刷新页面</a>]</td>
+  </tr>
+</table>
+<form name="addform" action="index.php?m=91736&c=content&f=edit_save" method="post" enctype="multipart/form-data">
+<table width="100%" border="0" align="center" cellspacing="1" cellpadding="2" class="tableBorder mt6">
+    <tr>
+    <th colspan="4">编辑内容</th>
+  </tr>
+  <tr>
+    <td width="17%" align="right">栏目名称：</td>
+    <td width="83%" colspan="3">{$catname}</td>
+  </tr>
+  <tr>
+    <td align="right">标题：</td>
+    <td colspan="3"><input type="text" name="title" class="txt" size="35" id="title" value="{$rs['title']}"> 
+      <select name="title_color" id="title_color">
+        <option value="">颜色</option>
+        <option value="c1" class="bg1" {if $style[0]=='c1'}selected="selected"{/if}></option>
+        <option value="c2" class="bg2" {if $style[0]=='c2'}selected="selected"{/if}></option>
+        <option value="c3" class="bg3" {if $style[0]=='c3'}selected="selected"{/if}></option>
+        <option value="c4" class="bg4" {if $style[0]=='c4'}selected="selected"{/if}></option>
+        <option value="c5" class="bg5" {if $style[0]=='c5'}selected="selected"{/if}></option>
+        <option value="c6" class="bg6" {if $style[0]=='c6'}selected="selected"{/if}></option>
+        <option value="c7" class="bg7" {if $style[0]=='c7'}selected="selected"{/if}></option>
+        <option value="c8" class="bg8" {if $style[0]=='c8'}selected="selected"{/if}></option>
+        <option value="c9" class="bg9" {if $style[0]=='c9'}selected="selected"{/if}></option>
+      </select>
+      <input name="title_weight" type="checkbox" id="title_weight" value="tb" {if $style[1]=='tb'}checked="checked"{/if} />
+      加粗(请注意标题不要超过30字，否则系统将智能截取)</td>
+  </tr>
+  <tr>
+    <td align="right">是否推荐：</td>
+    <td colspan="3"><input name="commend" type="radio" id="commend" value="1" {if $rs['commend']==1}checked="checked"{/if}/> 是 <input name="commend" type="radio" id="commend" value="0" {if $rs['commend']==0}checked="checked"{/if} /> 
+      否</td>
+  </tr>
+  <tr>
+    <td align="right">作者：</td>
+    <td colspan="3"><input type="text" name="username" class="txt" size="10" id="username" value="{$rs['username']}"></td>
+  </tr>
+  <tr>
+    <td align="right">缩略图：</td>
+    <td colspan="3"><input type="text" name="thumb" id="thumb" class="txt" size="25" value="{$rs['thumb']}"> <a href="#" onclick="javascript:ShowIframe('上传缩略图','system/function/upload.inc.php?filename=thumb','340','80')">上 传</a></td>
+  </tr>
+  <tr>
+    <td align="right">关键词:</td>
+    <td colspan="3"><input type="text" name="keywords" class="txt" size="40" id="keywords" value="{$rs['keywords']}"></td>
+  </tr>
+  <tr>
+    <td align="right">摘要:</td>
+    <td colspan="3"><textarea name="description" id="description" cols="50" rows="4">{$rs['description']}</textarea></td>
+  </tr>
+  {$fields}
+  <tr>
+    <td align="right">更新时间：</td>
+    <!--<td colspan="3"><input type="text" name="updatetime" class="txt" size="20" id="updatetime" value="{$smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}"></td>-->
+	<td colspan="3"><input type="text" name="updatetime" class="txt" size="20" id="updatetime" value="{$rs['updatetime']|date_format:'%Y-%m-%d %H:%M:%S'}"></td>
+  </tr>
+  <tr>
+    <td align="right">排序：</td>
+    <td colspan="3"><input type="text" name="sort" class="txt" size="20" id="sort" value="{$rs['sort']}"></td>
+  </tr>
+  
+  
+  <tr>
+    <td align="right">链接地址：</td>
+    <td colspan="3"><input type="text" name="url" class="txt" size="30" id="url" value="{$rs['url']}"> </td>
+  </tr>
+  <tr>
+    <td colspan="4" align="right" class="tdpage"><input type="hidden" name="inputtime" id="inputtime" value="{$rs['inputtime']}" />
+      <input type="hidden" name="id" id="id" value="{$rs['contentid']}" /><input type="hidden" name="catid" id="catid" value="{$catid}" />
+      <input type="submit" name="submit" value=" 保 存 " class="inputs" /></td>
+    </tr>
+</table>
+</form>
+{/nocache}
+{include file="admin/footer.html"}
+</body>
+</html>

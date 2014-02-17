@@ -1,0 +1,35 @@
+{include file="admin/top.html"}
+{nocache}
+<table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="tableBorder">
+  <tr>
+    <th height="25">客服管理</th>
+  </tr>
+  <tr>
+    <td height=25 class="pl20"><b>管理选项：</b><a href="index.php?m=qq&c=qq">管理首页</a> | <a href="index.php?m=qq&c=qq&f=add">添加客服QQ</a>&nbsp;|&nbsp;[<a href="javascript:location.reload()">刷新页面</a>]</td>
+  </tr>
+</table>
+<table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" class="tableBorder">
+<tr>
+    <th colspan=5 height=25>客服QQ列表</th>
+</tr>
+<tr align="center"> 
+    <td width="5%" height=25>编号</td>
+    <td width="31%">名称</td>
+    <td width="40%">QQ号码</td>
+    <td width="12%">是否显示</td>
+    <td width="12%">操作</td>
+</tr>
+{loop sql="select * from {$pre}qq"}
+<tr align="center"> 
+    <td height=25>{$r.id}</td>
+    <td>{$r.title}</td>
+    <td>{$r.qq}</td>
+    <td>{if $r.is_lock==1}<a href="index.php?m=qq&c=qq&f=lock&id={$r.id}&lockid=0"><font color='#FF0000'>已锁定</font></a>{else}<a href="index.php?m=qq&c=qq&f=lock&id={$r.id}&lockid=1">正常</a>{/if}</td>
+    <td><a href="index.php?m=qq&c=qq&f=edit&id={$r.id}">编辑</a> | <a href="index.php?m=qq&c=qq&f=delete&id={$r.id}">删除</a></td>
+</tr>
+{/loop}
+</table>
+{/nocache}
+{include file="admin/footer.html"}
+</body>
+</html>

@@ -1,0 +1,47 @@
+{include file="admin/top.html"}
+{nocache}
+<script charset="utf-8" src="admin/editor/kindeditor.js"></script>
+<script charset="utf-8" src="admin/editor/lang/zh_CN.js"></script>
+<script charset="utf-8" src="admin/editor/plugins/code/prettify.js"></script>
+<script charset="utf-8" src="admin/editor/editor.js"></script>
+<form name="addform" action="index.php?m=91736&c=content&f=add_save" method="post">
+<table width="100%" border="0" align="center" cellspacing="1" cellpadding="2" class="tableBorder mt6">
+    <tr>
+    <th colspan="4">发布内容</th>
+  </tr>
+  <tr>
+    <td width="17%" align="right">栏目名称：</td>
+    <td width="83%" colspan="3">{$catname}</td>
+  </tr>
+  <tr>
+    <td align="right">标题：</td>
+    <td colspan="3"><input type="text" name="title" class="txt" size="45" id="title"></td>
+  </tr>
+  <tr>
+    <td align="right">缩略图：</td>
+    <td colspan="3"><input type="text" name="thumb" id="thumb" class="txt" size="25" value=""> <a href="#" onclick="javascript:ShowIframe('上传缩略图','system/function/upload.inc.php?filename=thumb','340','80')">上 传</a></td>
+  </tr>
+<!--  <tr>
+    <td align="right">关键词:</td>
+    <td colspan="3"><input type="text" name="keywords" class="txt" size="40" id="keywords"></td>
+  </tr>
+  <tr>
+    <td align="right">摘要:</td>
+    <td colspan="3"><textarea name="description" id="description" cols="50" rows="4"></textarea></td>
+  </tr>-->
+  {$fields}
+  <tr>
+    <td align="right">发布时间：</td>
+    <td colspan="3"><input type="text" name="updatetime" class="txt" size="20" id="updatetime" value="{$smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}"></td>
+  </tr>
+  <tr>
+    <td colspan="4" align="right" class="tdpage">
+      <input type="hidden" name="catid" id="catid" value="{$catid}" />
+      <input type="submit" name="submit" value=" 保 存 " class="inputs" /></td>
+    </tr>
+</table>
+</form>
+{/nocache}
+{include file="admin/footer.html"}
+</body>
+</html>

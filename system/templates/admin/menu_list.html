@@ -1,0 +1,35 @@
+{include file="admin/top.html"}
+{nocache}
+<table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="tableBorder">
+  <tr>
+    <th height="25">后台菜单管理</th>
+  </tr>
+  <tr>
+    <td height=25 class="pl20"><b>管理选项：</b><a href="index.php?m=91736&c=menu">管理首页</a> | <a href="index.php?m=91736&c=menu&f=add">添加菜单</a> | <a href="index.php?m=91736&c=menu&f=cache">更新缓存</a> | [<a href="javascript:location.reload()">刷新页面</a>]</td>
+  </tr>
+</table>
+<table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" class="tableBorder">
+<tr>
+    <th colspan=6 height=25>栏目列表</th>
+</tr>
+<tr align="center"> 
+    <td width="11%" height=25>ID</td>
+    <td>菜单名称</td>
+    <td width="34%">操作</td>
+</tr>
+{loop sql="select * from {$pre}menu where parentid=0"}
+<tr align="center"> 
+    <td width="11%" height=25>{$r.menuid}</td>
+    <td align="left">&nbsp;&nbsp;{$r.title}</td>
+    <td width="34%"><a href="index.php?m=91736&c=menu&f=add&p={$r.menuid}">添加子菜单</a> | <a href="index.php?m=91736&c=menu&f=lists&id={$r.menuid}">查看子菜单</a> | <a href="index.php?m=91736&c=menu&f=edit&id={$r.menuid}">编辑</a> | <a href="#" onclick="ShowConfirm('确认删除','真的要删除此菜单吗?','index.php?m=91736&c=menu&f=delete&id={$r.menuid}')">删除</a></td>
+</tr>
+{/loop}
+<tr>
+    <td width="11%" height=25>&nbsp;</td>
+    <td colspan=2>&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="button" id="button" value="排序" class="inputs" /></td>
+</tr>
+</table>
+{/nocache}
+{include file="admin/footer.html"}
+</body>
+</html>

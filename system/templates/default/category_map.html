@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{if $cat['seo_title']==''}{$cat['catname']}{else}{$cat['seo_title']}{/if}</title>
+<meta name="Keywords" content="{$cat['seo_key']}" />
+<meta name="Description" content="{$cat['seo_des']}" />
+<base href="{$config['siteurl']}">
+{include file="default/header_js.html"}
+</head>
+
+<body>
+<center>
+
+<div id="wraper">
+{include file="default/header.html"}
+<!--页面中间内开始容-->
+<div class="homeCon">
+	<!--mainBox starts here-->
+	<div class="mainBox">
+		<!--mainRoute-->
+		<div class="mainRoute">当前位置：<a href="http://www.eisoo.com/cn/">首页</a>  &gt; <a href="http://www.eisoo.com/cn/partner/index.php?id=intro">{$cat['catname']} </a>
+		&gt; {$cat['catname']}		 </div>
+		<!--mainNav-->
+		<div class="mainNav">
+			   {include file="default/left_single.html"}
+		</div>
+		
+<div class="mainCon">	
+	<!--mainThird starts here-->	
+	<div class="mainThird">
+		<div style="width: 720px; height: 115px; background: url('{$image_path}tobe.png') repeat scroll 0% 0% transparent;"><img src="{$image_path}eisoos.gif" border="0"></div>
+		<div class="mainConHr3_0"></div>
+		<div class="main3Tl_0">网站地图</div>
+		
+		<div class="main1Con">
+			
+			{foreach from=$menu item=value}
+            	
+				<div class="main1Tl"><a class="mainTl" href="{$value['url']}"><img src="{$image_path}more.png" border="0"> {$value['catname']}</a></div>
+				<div class="main1Con">
+					<p class="p1">
+					
+					asdf</p>		
+				</div>
+				<ul class="main1ConUl">
+				
+					{loop sql="SELECT *  from {$pre}category where parentid={$value['catid']} and is_show =1 order by sort asc" }
+					<li class="menuUl_li2"><a href="{$r.url}">{$r.catname}</a></li>
+					{loop sql="SELECT *  from {$pre}category where parentid={$r['catid']} and is_show =1 order by sort asc" }
+					<li class="menuUl_li3"><a href="{$r.url}">{$r.catname} </a></li>
+		           	{/loop}
+                   	
+				{/loop}	
+				</ul>
+				<div class="mainConHr1"></div>
+				
+				
+				
+				
+	
+	
+
+				{/loop}	
+
+
+				
+			{$pages}
+		</div>
+		
+		
+		
+	</div><!--mainThird ends here-->
+</div><!--mainCon ends here-->
+
+
+
+
+		<div class="footLine"></div>
+	</div>
+  	<!--mainBox ends here-->
+</div>
+<!--页面中间内容结束-->
+
+{include file="default/footer.html"}
+
+</div></center>
+</body>
+</html>

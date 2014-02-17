@@ -1,0 +1,32 @@
+<DIV id=xixi onmouseover=toBig() onmouseout=toSmall()>
+<TABLE style="FLOAT: left" border=0 cellSpacing=0 cellPadding=0 width=157>
+  <TBODY>
+  <TR>
+    <TD class=main_head height=39 vAlign=top>&nbsp;</TD></TR>
+  <TR>
+    <TD class=info vAlign=top>
+      <TABLE class=qqtable border=0 cellSpacing=0 cellPadding=0 width=120 
+      align=center>
+        <TBODY>
+        
+        <TR>
+          <TD height=5></TD></TR>
+        {loop sql="select * from {$pre}qq where is_lock=0"}
+        <TR>
+          <TD height=30 align=middle><SPAN><a href=' http://wpa.qq.com/msgrd?V=1&amp;Uin={$r.qq}&amp;Site=91736.com&amp;Menu=yes' target='_blank'><img src=' http://wpa.qq.com/pa?p=1:{$r.qq}:4'  border='0' alt='QQ' /> {$r.title}</a></SPAN></TD></TR>
+        {/loop}
+        <TR>
+          <TD height=5></TD></TR>
+        <TR>
+          <TD height=35 vAlign=top align=middle><A href="http://www.91736.cn/products/" target="_blank"><IMG border=0 src="{$image_path}img3-5-btn1.gif" width=90 height=25></A></TD>
+        </TR>
+        <TR>
+          <TD height=38 vAlign=top align=middle><A href="http://www.91736.cn/products/" target="_blank"><IMG border=0 src="{$image_path}img3-5-btn2.gif" width=90 height=25></A></TD>
+        </TR>
+        
+        <TR>
+        <TD align=middle>&nbsp;</TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD class=down_kefu vAlign=top></TD></TR></TBODY></TABLE>
+<DIV class=Obtn></DIV></DIV>
+<script language=javascript src="{$image_path}js.js"></script>

@@ -1,0 +1,39 @@
+{include file="admin/top.html"}
+<table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="tableBorder">
+  <tr>
+    <th height="25">数据库管理</th>
+  </tr>
+  <tr>
+    <td height=25 class="pl20"><b>管理选项：</b><a href="index.php?m=91736&c=data">数据库备份</a> | <a href="index.php?m=91736&c=data&f=data_file">数据库恢复</a>&nbsp;|&nbsp;[<a href="javascript:location.reload()">刷新页面</a>]</td>
+  </tr>
+</table>
+<table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" class="tableBorder">
+<tr>
+    <th colspan=5 height=25>数据库列表</th>
+</tr>
+<tr align="center"> 
+    <td width="6%" height=25>选择</td>
+    <td width="40%">表名</td>
+    <td width="11%">记录数</td>
+    <td width="11%">数据大小</td>
+    <td width="11%">操作</td>
+</tr>
+<form id="form1" name="form1" method="post" action="index.php?m=91736&c=data&f=backup">
+{foreach from=$table item=value key=k}
+<tr align="center"> 
+    <td height=25 align="center"><input type="checkbox" name="id[]" value="{$value['Name']}" id="id[]" class="checkbox"/></td>
+    <td align="left">{$value['Name']}</td>
+    <td align="center">{$value['Rows']}</td>
+    <td align="center">{if $value['Data_length']/1024 < 1024}{round($value['Data_length']/1024,2)} KB{else}{round(($value['Data_length']/1024)/1024,2)} M{/if}</td>
+    <td align="center"><a href="#" onclick="ShowConfirm('确认恢复','真的修复[{$value['Name']}]吗?','index.php?m=91736&c=data&f=repair&table={$value['Name']}')">修复</a></td>
+</tr>
+{/foreach}
+<tr align="center"> 
+    <td width="6%" height=25 align="center"><input name="checkSelect" type="checkbox" class="checkbox" onClick="javascript: checkAll(this)" value="checkbox"></td>
+    <td colspan="4" align="left"><input type="submit" name="Submit" value="备份数据库" class="inputs"/></td>
+  </tr>
+</form>
+</table>
+{include file="admin/footer.html"}
+</body>
+</html>

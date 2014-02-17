@@ -1,0 +1,39 @@
+{include file="admin/top.html"}
+{nocache}
+<table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="tableBorder">
+  <tr>
+    <th height="25">管理员管理</th>
+  </tr>
+  <tr>
+    <td height=25 class="pl20"><b>管理选项：</b><a href="index.php?m=91736&c=admin">管理首页</a> | <a href="index.php?m=91736&c=admin&f=add">添加管理员</a>&nbsp;|&nbsp;[<a href="javascript:location.reload()">刷新页面</a>]</td>
+  </tr>
+</table>
+<table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" class="tableBorder">
+<tr>
+    <th colspan=7 height=25>管理员列表</th>
+</tr>
+<tr align="center"> 
+    <td width="5%" height=25>编号</td>
+    <td width="20%">管理员账号</td>
+    <td width="10%">登录IP</td>
+    <td width="20%">创建时间</td>
+    <td width="20%">登录时间</td>
+    <td width="10%">是否锁定</td>
+    <td width="10%">操作</td>
+</tr>
+{loop sql="select * from {$pre}admin"}
+<tr align="center"> 
+    <td height=25>{$r.id}</td>
+    <td>{$r.username}</td>
+    <td>{$r.last_ip}</td>
+    <td>{$r.creat_time|date_format:'%Y-%m-%d %H:%M:%S'}</td>
+    <td>{$r.last_time|date_format:'%Y-%m-%d %H:%M:%S'}</td>
+    <td>{if $r.is_lock==1}<a href="index.php?m=91736&c=admin&f=lock&id={$r.id}&lockid=0"><font color='#FF0000'>已锁定</font></a>{else}<a href="index.php?m=91736&c=admin&f=lock&id={$r.id}&lockid=1">正常</a>{/if}</td>
+    <td><a href="index.php?m=91736&c=admin&f=edit&id={$r.id}">编辑</a> | <a href="###" onclick="ShowConfirm('确认删除','真的要删除此管理员吗?','index.php?m=91736&c=admin&f=delete&id={$r.id}')">删除</a></td>
+</tr>
+{/loop}
+</table>
+{/nocache}
+{include file="admin/footer.html"}
+</body>
+</html>

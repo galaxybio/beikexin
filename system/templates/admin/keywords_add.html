@@ -1,0 +1,31 @@
+{include file="admin/top.html"}
+<table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="tableBorder">
+  <tr>
+    <th height="25">关键词管理</th>
+  </tr>
+  <tr>
+    <td height=25 class="pl20"><b>管理选项：</b><a href="index.php?m=91736&c=keywords">管理首页</a> | <a href="index.php?m=91736&c=keywords&f=add">添加关键词</a> | <a href="index.php?m=91736&c=keywords&f=cache">更新关键词缓存</a>&nbsp;|&nbsp;[<a href="javascript:location.reload()">刷新页面</a>]</td>
+  </tr>
+</table>
+<table width="100%" border="0" align="center" cellspacing="1" cellpadding="2" class="tableBorder mt6">
+<form name="addform" action="index.php?m=91736&c=keywords&f=addsave" method="post">
+  <tr>
+    <th colspan="4">添加关键词</th>
+  </tr>
+  <tr>
+    <td width="24%" align="right">名称：</td>
+    <td width="76%" colspan="3"><input type="text" name="title" class="txt" size="30"></td>
+  </tr>
+  <tr>
+    <td align="right">链接地址：</td>
+    <td colspan="3"><input type="text" name="url" class="txt" size="30"> *请填写完整路径，如：http://www.chinabang.net</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="right" class="tdpage">
+      <input type="submit" name="submit" value=" 保 存 " class="inputs" /></td>
+    </tr>
+  </form>
+</table>
+{include file="admin/footer.html"}
+</body>
+</html>

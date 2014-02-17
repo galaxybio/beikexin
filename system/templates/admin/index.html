@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<title>{$config["sitename"]}后台管理系统</title>
+<link href="admin/css/style.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="admin/js/admin.js"></script>
+<base target="main">
+</head>
+<body style="MARGIN: 0px">
+<div class="top">
+	<div><div class="logo">后台管理系统</div>
+	<div class="topdl"><li>友情提醒：</li><li><marquee scrollamount=3 width="200px" onMouseOver="this.stop();" onMouseOut="this.start();">操作前请注意先备份数据库,以免数据丢失!</marquee></li><li>&nbsp;&nbsp;&nbsp;&nbsp;
+    欢迎{$adminuser}｜<a href="index.php" target="_blank"><span class="fff">网站首页</span></a>｜<a href="index.php?m=91736&c=login&f=out" target="_parent"><span class="fff">退出</span></a></li></div>
+    </div>
+<div class="tabm">
+<ul>
+{foreach $top_menu as $k=>$v}
+<li class="tabms" id="menu_0{$k}" onClick="getleftbar(this,0,6,{$k});"><a href="index.php?m=91736&c=index&f=main" target="main" onClick="parent.left.location='{$v.url}';"><span>{$v.title}</span></a></li>
+{/foreach}
+</ul>
+</div>
+</div>
+<table width="100%" height="85%" border="0" cellpadding="0" cellspacing="0" class="mindex">
+  <tr>
+    <td width="150" valign="top" id="frmleft" name="frmleft"><table width="150" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td height="28" id="leftmenu_title" class="leftmenu_title"><span>常用快捷操作</span></td>
+      </tr>
+    </table>
+	<iframe  style="margin:0; padding:0; width:100%; height:772px!important;height:100%; background-color:#081250; visibility:inherit;" src="index.php?m=91736&c=index&f=left" frameborder="0" id="left" name="left"  scrolling="auto" align="middle" class="leftiframe"></iframe></td>
+    <td width="10"><table height="100%" height="100%" cellspacing="0" cellpadding="0" border="0">
+      <tbody>
+        <tr>
+          <td style="HEIGHT: 100%" onClick="switchSysBar()"><span id="switchPoint" title="关闭/打开左栏"><img src="admin/images/lere.gif" width="10" height="20" /></span> </td>
+        </tr>
+      </tbody>
+    </table></td>
+    <td valign="top"><iframe style="margin:0; padding:0; width:100%; height:800px!important;height:100%; background-color:#081250; visibility:inherit;" src="index.php?m=91736&c=index&f=main" frameborder="0" scrolling="yes" id="main" name="main"></iframe></td>
+  </tr>
+</table>
+<table width="100%" height="30" border="0" cellpadding="4" cellspacing="0" class="mindex">
+  <tr>
+    <td width="75%">&nbsp;</td>
+    <td width="25%"></td>
+  </tr>
+</table>
+</body>
+</html>

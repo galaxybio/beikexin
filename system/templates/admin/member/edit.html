@@ -1,0 +1,41 @@
+{include file="admin/top.html"}
+{nocache}
+<table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="tableBorder">
+  <tr>
+    <th height="25">会员管理</th>
+  </tr>
+  <tr>
+    <td height=25 class="pl20"><b>管理选项：</b><a href="index.php?m=member&c=admin">管理首页</a> | <a href="index.php?m=member&c=admin&f=field">会员模型</a> | [<a href="javascript:location.reload()">刷新页面</a>]</td>
+  </tr>
+</table>
+<table width="100%" border="0" align="center" cellspacing="1" cellpadding="2" class="tableBorder mt6">
+<form name="addform" action="index.php?m=member&c=admin&f=editsave" method="post">
+    <tr>
+    <th colspan="4">会员编辑</th>
+  </tr>
+  <tr>
+    <td align="right">用户名：</td>
+    <td colspan="3">{$rs.username}</td>
+  </tr>
+  <tr>
+    <td align="right">会员组：</td>
+    <td colspan="3">
+    <select name="groupid" id="groupid">
+      {$group}
+    </select></td>
+  </tr>
+  <tr>
+    <td align="right">密码：</td>
+    <td colspan="3"><input name="password" type="password" id="password" size="20"> * 不修改请留空</td>
+  </tr>
+  {$fields}
+  <tr>
+    <td colspan="4" align="right" class="tdpage"><input name="id" type="hidden" id="id" value="{$rs['userid']}" />
+      <input type="submit" name="submit" value=" 保 存 " class="inputs" /></td>
+    </tr>
+  </form>
+</table>
+{/nocache}
+{include file="admin/footer.html"}
+</body>
+</html>

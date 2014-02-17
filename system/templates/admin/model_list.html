@@ -1,0 +1,35 @@
+{include file="admin/top.html"}
+{nocache}
+<table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="tableBorder">
+  <tr>
+    <th height="25">模型管理</th>
+  </tr>
+  <tr>
+    <td height=25 class="pl20"><b>管理选项：</b><a href="index.php?m=91736&c=model">管理首页</a> | <a href="index.php?m=91736&c=model&f=model_add">添加模型</a> | <a href="index.php?m=91736&c=model&f=cache">更新模型缓存</a> | [<a href="javascript:location.reload()">刷新页面</a>]</td>
+  </tr>
+</table>
+<table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" class="tableBorder">
+<tr>
+    <th colspan=5 height=25>模型列表</th>
+</tr>
+<tr align="center"> 
+    <td width="5%" height=25>编号</td>
+    <td width="20%">模型名称</td>
+    <td width="10%">数据表</td>
+    <td width="10%">状态</td>
+    <td width="10%">操作</td>
+</tr>
+{loop sql="select * from {$pre}model order by id desc"}
+<tr align="center"> 
+    <td height=25>{$r.id}</td>
+    <td>{$r.model_name}</td>
+    <td>{$pre}{$r.model_table}</td>
+    <td>{if $r.is_lock==0}<a href="index.php?m=91736&c=model&f=lock&id={$r.id}&lockid=1"><font color='#FF0000'>已锁定</font></a>{else}<a href="index.php?m=91736&c=model&f=lock&id={$r.id}&lockid=0">正常</a>{/if}</td>
+    <td><a href="index.php?m=91736&c=model&f=field&modelid={$r.id}">管理字段</a> | <a href="index.php?m=91736&c=model&f=model_edit&id={$r.id}">编辑</a> | {if $r.is_fixed==0}<a href="###" onclick="ShowConfirm('确认删除','真的要删除此模型吗?','index.php?m=91736&c=model&f=model_delete&id={$r.id}')">删除</a>{else}<font color='#FF0000'>删除</font>{/if}</td>
+</tr>
+{/loop}
+</table>
+{/nocache}
+{include file="admin/footer.html"}
+</body>
+</html>

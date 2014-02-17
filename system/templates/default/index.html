@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{$config['title']}</title>
+<meta name="Keywords" content="{$config['keywords']}" />
+<meta name="Description" content="{$config['description']}" />
+{include file="default/header_js.html"}
+
+</head>
+<body>
+<center>
+
+<div id="wraper">
+{include file="default/header.html"}
+<!--首页焦点广告图-->
+<div id="homeFlash">
+<div class="longBg">
+	<div class="longBg2" id="slider">
+	
+	<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="test" width="886" height="334"codebase="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab">
+	<param name="movie" value="uploadfile/flash.swf?bcastr_xml_url=uploadfile/flash.xml" />
+    <param name="quality" value="high" /><param name="bgcolor" value="#869ca7" />
+    <param name="wmode" value="transparent" /><param name="allowScriptAccess" value="sameDomain" />
+    <embed  wmode="transparent" src="uploadfile/flash.swf?bcastr_xml_url=uploadfile/flash.xml" quality="high" bgcolor="#869ca7"width="886" height="334" name="test" align="middle"play="true"loop="false"quality="high"allowScriptAccess="sameDomain"type="application/x-shockwave-flash"pluginspage="http://www.adobe.com/go/getflashplayer"></embed>
+</object>
+
+	</div>
+</div>
+
+</div>
+
+<div class="homeCon">
+<!--<div class="news">
+     <span style="top: 3px; left: 180px; position: relative;"><a href="/"><img src="{$image_path}share.jpg" border="0"></a></span>
+</div>-->
+
+</div>
+<!--首页中间内容-->
+<div class="homeCon">
+  <div class="homeCon0">
+  
+    <!--公司新闻-->
+ <div class="homeCon1" style="margin: 0px 8px;">
+      <div class="homeCon2">
+        <div class="homeCon2In" style="top: 0px; left: 7px; position: relative;">
+          <div class="tittle1">公司新闻</div>
+          <div style="width: 400px; height: 1px; float: left;"><img src="{$image_path}linehome3.png" border="0"></div>
+          <div class="homeCon2In" style="margin-top: 7px;">
+            <ul class="ulHome">  
+
+
+				{loop catid="10" rows="6"}
+				
+					<li class="liCase liHome1" ><a class="aHome" href="{$r['url']}" title="{$r['title']}">{$r['title']}</a></li>
+				{/loop}          	
+            	
+								
+                       	            	
+            </ul>
+          </div>
+          <div class="homeCon2In" style="margin-top: 5px; text-align: right;"><a href="index.php?m=content&c=index&f=lists&catid=10"><!--<img src="{$image_path}more.png" border="0">--> 了解更多...</a></div>
+        </div>
+      </div>
+    </div>
+	
+    <!--Tab内容-->
+    <div class="homeCon3">
+      <div class="tabHome">
+        <ul id="tabHomeMenu">
+          <li class="hover" onmouseover="setTab(0)">热销产品</li>
+        <!--  <li onmouseover="setTab(1)">签约新闻</li>
+         
+          <li onmouseover="setTab(2)">最新动态</li>
+		 -->
+        </ul>
+        <div class="tabHomeMain" id="tabHomeCon" style="height: 172px;">
+		<span class="block">
+		
+		
+          <div class="homeMedia">
+		  
+            <div class="homeMedia_L" style="width: 160px;">
+           		
+           		<div class="homeMedia_Pic"><a href="index.php?m=content&c=index&f=show&catid=3&contentid=51"><img src="{$image_path}media_anybackup.jpg" border="0"></a></div>
+              <div class="homeMedia_Con" style="width: 110px;"><a class="red" href="index.php?m=content&c=index&f=show&catid=3&contentid=51">北信云存储</a></div>
+            </div>
+			
+            <div class="homeMedia_R">
+            	<div class="homeMedia_Pic"><a href="index.php?m=content&c=index&f=show&catid=3&contentid=52"><img src="{$image_path}newconference.jpg" border="0"></a></div>
+              <div class="homeMedia_Con"><a class="red" href="index.php?m=content&c=index&f=show&catid=3&contentid=52">数据挖掘</a></div>
+            </div>
+          </div>
+		 
+		  
+          <div class="homeMedia">
+            <div class="homeMedia_L" style="margin-top: 15px;">
+              <div class="homeMedia_Pic"><a href="index.php?m=content&c=index&f=show&catid=38&contentid=37"><img src="{$image_path}media_2011exhi.jpg" border="0"></a></div>
+              <div class="homeMedia_Con"><a href="index.php?m=content&c=index&f=show&catid=38&contentid=37">私有云解决方案</a></div>
+            </div>              
+            <div class="homeMedia_R" style="margin-top: 15px;">
+              <div class="homeMedia_Pic"><a href="index.php?m=content&c=index&f=show&catid=38&contentid=54"><img src="{$image_path}media_cloud.jpg" border="0"></a></div><a href="/">
+              </a><div class="homeMedia_Con"><a href="index.php?m=content&c=index&f=show&catid=38&contentid=54"></a><a href="/">虚拟化解决方案</a></div>
+            </div>
+          </div>
+          
+       
+          </span>
+		 
+            <!--签约新闻-->
+          <!--   <span>
+            <div class="homeMedia">
+              <ul class="ulHome">
+              	<li class="liMedia liHome1"><a class="aHome" href="http://www.eisoo.com/article/contract/20120717/808.html" target="_top">爱数一体化容灾助力克拉玛依公安局信息化安全</a></li>
+              	<li class="liMedia liHome1"><a class="aHome" href="http://www.eisoo.com/article/contract/20120717/807.html" target="_top">爱数助新疆维吾尔自治区人民检察院构建备份容灾云</a></li>
+              	<li class="liMedia liHome1"><a class="aHome" href="http://www.eisoo.com/article/contract/20120620/799.html" target="_top">爱数AnyShare闪耀伊利实业集团</a></li>
+              	<li class="liMedia liHome1"><a class="aHome" href="http://www.eisoo.com/article/contract/20120524/795.html" target="_top">分享之路——爱数AnyShare为苏州二建打造......</a></li>
+              	<li class="liMedia liHome1"><a class="aHome" href="http://www.eisoo.com/article/contract/20120524/794.html" target="_top">爱数助力永州市国土资源局备份容灾系统建设</a></li>
+            </ul></div>
+              <div class="homeMedia" style="margin-top: 22px; text-align: right; float: left;"><a href="http://www.eisoo.com/article/plus/list.php?tid=11"><img src="{$image_path}more.png" border="0"> 了解更多</a></div>
+            </span>
+            -->
+            <!--最新动态-->
+         <!--  <span>
+            <div class="homeMedia">
+              <ul class="ulHome">
+              	<li style="width: 360px;" class="liMedia liHome1"><a class="aHome" href="http://www.eisoo.com/article/news/20120620/802.html" target="_top" title="拥抱智能文档管理（三）——谁在关心企业文档管理">拥抱智能文档管理（三）——谁在关心企业文档管理</a></li>
+              	<li style="width: 360px;" class="liMedia liHome1"><a class="aHome" href="http://www.eisoo.com/article/news/20120620/801.html" target="_top" title="拥抱智能文档管理（二）——文档管理的挑战">拥抱智能文档管理（二）——文档管理的挑战</a></li>
+              	<li style="width: 360px;" class="liMedia liHome1"><a class="aHome" href="http://www.eisoo.com/article/news/20120620/800.html" target="_top" title="深入爱数一体化容灾技术体系——重复数据删除">深入爱数一体化容灾技术体系——重复数据删除</a></li>
+              	<li style="width: 360px;" class="liMedia liHome1"><a class="aHome" href="http://www.eisoo.com/article/news/20120522/793.html" target="_top" title="拥抱爱数 拥抱智能数据管理——爱数2012新品发布会拉开帷幕">拥抱爱数 拥抱智能数据管理——爱数2012新品发布会拉开帷幕</a></li>
+              	<li class="liMedia liHome1"><a class="aHome" href="http://www.eisoo.com/article/news/20120405/789.html" target="_top" title="文档管理的基石——文档组织">文档管理的基石——文档组织</a></li>
+              
+              	</ul>
+            </div>
+              <div class="homeMedia" style="margin-top: 21px; text-align: right; float: left;"><a href="http://www.eisoo.com/article/plus/list.php?tid=1"><img src="{$image_path}more.png" border="0"> 了解更多</a></div>
+            </span>
+
+		-->
+
+     </div>
+        <div style="width: 431px; height: 3px; line-height: 3px; margin-bottom: 10px; float: left;"><img src="{$image_path}tabhomeb.png"></div>
+      </div>
+    </div>
+  </div>  
+
+
+</div>
+
+{include file="default/footer.html"}  
+</div>
+
+</center>
+
+</body>
+</html>

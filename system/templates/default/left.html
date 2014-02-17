@@ -1,0 +1,18 @@
+<ul class="mainNav1">
+
+{foreach from=$left_menu item=value }
+<li class="mainNav1_0"><a href="{$value['url']}">{$value['catname']}</a></li>
+
+{loop sql="SELECT *  from {$pre}category where parentid={$value['catid']}  order by sort asc" }
+<li  {if $r['catname']==$cat['catname']}class="mainNav1_on"{else} class="mainNav1_1"{/if}><a href="{$r.url}">{$r.catname}</a></li>
+{/loop}
+
+
+{/foreach}
+
+
+
+</ul>
+
+
+ {include file="default/left_bottom.html"}

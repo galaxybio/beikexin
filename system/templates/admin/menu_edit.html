@@ -1,0 +1,45 @@
+{include file="admin/top.html"}
+{nocache}
+<table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="tableBorder">
+  <tr>
+    <th height="25">后台菜单管理</th>
+  </tr>
+  <tr>
+    <td height=25 class="pl20"><b>管理选项：</b><a href="index.php?m=91736&c=menu">管理首页</a> | <a href="index.php?m=91736&c=menu&f=add">添加菜单</a> | <a href="index.php?m=91736&c=menu&f=cache">更新缓存</a> | [<a href="javascript:location.reload()">刷新页面</a>]</td>
+  </tr>
+</table>
+<form name="addform" action="index.php?m=91736&c=menu&f=edit_save" method="post">
+<table width="100%" border="0" align="center" cellspacing="1" cellpadding="2" class="tableBorder mt6">
+
+    <tr>
+    <th colspan="4">编辑菜单</th>
+  </tr>
+  <tr>
+    <td width="14%" align="right">上级菜单:</td>
+    <td width="86%" colspan="3"><label>
+      <select name="parentid" id="parentid">
+        <option value="0">无(作为一级菜单)</option>
+        {foreach $menu as $v}
+        <option value="{$v['menuid']}" {if $v['menuid']==$rs['parentid']}selected="selected"{/if}>{$v['title']}</option>
+        {/foreach}
+      </select>
+    </label></td>
+  </tr>
+  <tr>
+    <td align="right">菜单名称:</td>
+    <td colspan="3"><input type="text" name="title" class="txt" size="20" id="title" value="{$rs['title']}"></td>
+  </tr>
+  <tr>
+    <td align="right">链接地址:</td>
+    <td colspan="3"><input type="text" name="url" class="txt" size="40" id="url" value="{$rs['url']}"></td>
+  </tr>
+  <tr>
+    <td colspan="4" align="right" class="tdpage">
+      <input type="submit" name="submit" value=" 保 存 " class="inputs" /><input name="menuid" type="hidden" value="{$rs['menuid']}" /></td>
+    </tr></table>
+  </form>
+
+{/nocache}
+{include file="admin/footer.html"}
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{$config['title']}</title>
+<meta name="Keywords" content="{$config['keywords']}" />
+<meta name="Description" content="{$config['description']}" />
+<link href="{$css_path}css.css" type=text/css rel=stylesheet>
+</head>
+
+<body>
+{include file="default12/header.html"}
+<div id="index_news" class="main">
+	<div class="news">
+    	<h1><span><a href="/index.php?m=content&c=index&f=lists&catid=2"><img src="{$image_path}more.gif" /></a></span><div><img src="{$image_path}tit_list.gif" /></div></h1>
+        <div class="news_common_pic">{loop catid=2 rows=1 commend=1 thumb=1}<a href="{$r['url']}"><img src="{thumb($r.thumb,211,147)}" /></a>{/loop}</div>
+        <ul>
+		{loop catid="2" rows="6"}
+        	<li><span>{$r.inputtime|date_format:"%Y/%m/%d"}</span><a href="{$r['url']}" {if $r.style!=""}class="{$r.style}"{/if}>{$r['title']|truncate_cn:28}</a></li>
+		{/loop}
+        </ul>
+    </div>
+    <div class="commmon_products">
+    	<h2><img src="{$image_path}tit_commend1.gif" /></h2>
+        <div>
+<SCRIPT type=text/javascript>
+var img=new Array();
+var txt=new Array();
+var lnk=new Array();
+
+{loop catid=3 rows=5 commend=1 thumb=1}
+img[{$r._index}]='{$r.thumb}'
+lnk[{$r._index}]=escape('{$r.url}');
+txt[{$r._index}]='';
+{/loop}
+
+var focus_width=261;
+var focus_height=193;
+var text_height=0;
+
+var swf_height = focus_height+text_height;
+
+var pics=img.join("|");
+var links=lnk.join("|");
+var texts=txt.join("|");
+ 
+ document.write('<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="[url]http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6[/url],0,0,0" width=261 height=193>');
+document.write('<param name="allowScriptAccess" value="sameDomain"><param name="movie" value="{$image_path}pixviewer.swf"><param name="quality" value="high"><param name="bgcolor" value="#ffffff">');
+document.write('<param name="menu" value="false"/><param name="wmode" value="transparent"/>');
+document.write('<param name="FlashVars" value="pics='+pics+'&links='+links+'&texts='+texts+'&borderwidth='+focus_width+'&borderheight='+focus_height+'&textheight='+text_height+'">');
+document.write('<embed src="{$image_path}pixviewer.swf" wmode="transparent" FlashVars="pics='+pics+'&links='+links+'&texts='+texts+'&borderwidth='+focus_width+'&borderheight='+focus_height+'&textheight='+text_height+'" menu="false" bgcolor="#ffffff" quality="high" width="'+ focus_width +'" height="'+ focus_height +'" allowScriptAccess="sameDomain" type="application/x-shockwave-flash"  pluginspage="[url]http://www.macromedia.com/go/getflashplayer[/url]" />');
+document.write('</object>');    </SCRIPT>
+        </div>
+    </div>
+</div>
+<div id="index_product" class="main">
+	<div class="index_product_l">
+    	<div class="index_product_l_l">
+        	<h2><img src="{$image_path}tit_log.gif" /></h2>
+            <div class="login">
+            	<script src="index.php?m=member&c=login"></script>
+            </div>
+            <h2><img src="{$image_path}tit_class.gif" /></h2>
+            <ul>
+            {loop sql="select * from {$pre}category where parentid=3" rows="5"}
+            	<li><a href="{$r.url}">{$r.catname}</a></li>
+            {/loop}
+            </ul>
+        </div>
+        <div class="index_product_l_r">
+        	<h1><span><a href="/index.php?m=content&c=index&f=lists&catid=3"><img src="{$image_path}more.gif" /></a></span><div><img src="{$image_path}tit_pro.gif" /></div></h1>
+            <ul>
+			{loop catid="3" rows="6"}
+            	<li><a href="{$r.url}"><img src="{thumb($r.thumb,130,110)}" /><br>{$r.title|truncate_cn:10}</a></li>
+			{/loop}
+            </ul>
+        </div>
+    </div>
+    <div class="index_product_r">
+    	<h2><img src="{$image_path}tit_search.gif" /></h2>
+        <div class="search">
+          <form id="search" name="search" method="get" action="index.php">
+            <label>
+            <input type="text" name="key" id="key" class="key" />
+            </label>
+            <label>
+            <input type="submit" name="button" id="button" value="搜索" class="submit" />
+            <input name="m" type="hidden" id="m" value="content" />
+            <input name="c" type="hidden" id="c" value="index" />
+            <input name="f" type="hidden" id="f" value="search" />
+            <input name="catid" type="hidden" id="catid" value="3" />
+            </label>
+          </form>
+        </div>
+        <h3 class="t10"><img src="{$image_path}tit_sev.gif" /></h3>
+        <h2><a href="http://bbs.91736.com" target="_blank"><img src="{$image_path}tit_vv.gif" /></a></h2>
+        <h3><a href="http://bbs.91736.com" target="_blank"><img src="{$image_path}video.jpg" /></a></h3>
+    </div>
+</div>
+<div id="links" class="main t10"><b>友情链接：</b>
+{loop sql="select * from {$pre}link order by id desc"}
+<a href="{$r.url}" target="_blank">{$r.title}</a> | 
+{/loop}
+</div>
+{include file="default12/footer.html"}
+</body>
+</html>

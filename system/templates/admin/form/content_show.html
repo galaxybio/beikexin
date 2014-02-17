@@ -1,0 +1,33 @@
+{include file="admin/top.html"}
+{nocache}
+<table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="tableBorder">
+  <tr>
+    <th height="25">内容管理</th>
+  </tr>
+  <tr>
+    <td height=25 class="pl20"><b>管理选项：</b><a href="index.php?m=form&c=content&formid={$formid}">管理首页</a> | [<a href="javascript:location.reload()">刷新页面</a>]</td>
+  </tr>
+</table>
+<table width="100%" border="0" align="center" cellspacing="1" cellpadding="2" class="tableBorder mt6">
+    <tr>
+    <th colspan="4">内容详细</th>
+  </tr>
+  <tr>
+    <td align="right">标题：</td>
+    <td colspan="3">{$rs['title']}</td>
+  </tr>
+  {$fields}
+  <tr>
+    <td align="right">发布时间：</td>
+    <td colspan="3">{$rs['inputtime']|date_format:'%Y-%m-%d %H:%M:%S'}</td>
+  </tr>
+  
+  <tr>
+    <td colspan="4" align="right" class="tdpage">
+      <input type="button" name="submit" value=" 返 回 " class="inputs" onclick="location.href='index.php?m=form&c=content&formid={$formid}'" /></td>
+    </tr>
+</table>
+{/nocache}
+{include file="admin/footer.html"}
+</body>
+</html>

@@ -1,0 +1,57 @@
+{include file="admin/top.html"}
+{nocache}
+<table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="tableBorder">
+  <tr>
+    <th height="25">网站信息配置</th>
+  </tr>
+  <tr>
+    <td height=25 class="pl20"><strong>提示信息：</strong>在些设置网站的基本信息，系统配置方面请谨慎设置！</td>
+  </tr>
+  <tr>
+    <td height=25 class="pl20"><b>管理选项：</b><a href="index.php?m=91736&c=setting">基本设置</a>&nbsp;|&nbsp;<a href="index.php?m=91736&c=setting&f=contact">联系方式</a>&nbsp;|&nbsp;<a href="index.php?m=91736&c=setting&f=email">邮件设置</a>&nbsp;|&nbsp;<a href="index.php?m=91736&c=setting&f=cache">更新缓存</a>&nbsp;|&nbsp;[<a href="javascript:location.reload()">刷新页面</a>]</td>
+  </tr>
+</table>
+<table width="100%" border="0" align="center" cellspacing="1" cellpadding="2" class="tableBorder mt6">
+<form name="addform" action="index.php?m=91736&c=setting&f=save" method="post">
+    <tr>
+    <th colspan="4">邮件选项<a name="main6"></a></th>
+  </tr>
+  <tr>
+    <td align="right">邮件发送方式：</td>
+    <td colspan="3">
+<input name="mailobject" type=radio class="checkbox" value="1" checked>
+通过 SOCKET 连接 SMTP 服务器发送(支持 ESMTP 验证)</td>
+  </tr>
+  <tr>
+    <td align="right">SMTP 服务器：</td>
+    <td colspan="3"><input type="text" name="mailserver" class="txt" size="30" value="{$email['mailserver']}">
+    设置 SMTP 服务器的地址</td>
+  </tr>
+  <tr>
+    <td align="right">SMTP 端口：</td>
+    <td colspan="3"><input type="text" name="mailport" class="txt" size="30" value="{$email['mailport']}">
+    设置 SMTP 服务器的端口，默认为 25</td>
+  </tr>
+  <tr>
+    <td align="right">SMTP 身份验证密码:</td>
+    <td colspan="3"><input type="password" name="password" class="txt" size="30" value="{$email['password']}"></td>
+  </tr>
+  <tr>
+    <td align="right">发信人邮件地址:</td>
+    <td colspan="3"><input type="text" name="mailadd" class="txt" size="30" value="{$email['mailadd']}">
+    如果需要验证, 必须为本服务器的邮件地址。</td>
+  </tr>
+  <tr>
+    <td align="right">SMTP 身份验证用户名:</td>
+    <td colspan="3"><input type="text" name="username" class="txt" size="30" value="{$email['username']}"></td>
+  </tr>
+  <tr>
+    <td colspan="4" align="right" class="tdpage"><input name="tag" type="hidden" id="tag" value="email" />
+      <input type="submit" name="submit" value=" 保 存 " class="inputs" /></td>
+    </tr>
+  </form>
+</table>
+{/nocache}
+{include file="admin/footer.html"}
+</body>
+</html>

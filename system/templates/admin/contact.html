@@ -1,0 +1,63 @@
+{include file="admin/top.html"}
+{nocache}
+<table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="tableBorder">
+  <tr>
+    <th height="25">网站信息配置</th>
+  </tr>
+  <tr>
+    <td height=25 class="pl20"><strong>提示信息：</strong>在些设置网站的基本信息，系统配置方面请谨慎设置！</td>
+  </tr>
+  <tr>
+    <td height=25 class="pl20"><b>管理选项：</b><a href="index.php?m=91736&c=setting">基本设置</a>&nbsp;|&nbsp;<a href="index.php?m=91736&c=setting&f=contact">联系方式</a>&nbsp;|&nbsp;<a href="index.php?m=91736&c=setting&f=email">邮件设置</a>&nbsp;|&nbsp;<a href="index.php?m=91736&c=setting&f=cache">更新缓存</a>&nbsp;|&nbsp;[<a href="javascript:location.reload()">刷新页面</a>]</td>
+  </tr>
+</table>
+<table width="100%" border="0" align="center" cellspacing="1" cellpadding="2" class="tableBorder mt6">
+<form name="addform" action="index.php?m=91736&c=setting&f=save" method="post">
+<tr>
+    <th colspan="4">联系信息<a name="main4"></a></th>
+  </tr>
+  <tr>
+    <td width="23%" align="right">管理员姓名：</td>
+    <td width="77%" colspan="3"><input type="text" name="master" class="txt" size="30" value="{$contact['master']}">
+    填写管理员姓名</td>
+  </tr>
+  <tr>
+    <td align="right">管理员信箱：</td>
+    <td colspan="3"><input type="text" name="email" class="txt" size="30" value="{$contact['email']}">
+    填写站点管理员的邮箱地址</td>
+  </tr>
+  <tr>
+    <td align="right">客服专员：</td>
+    <td colspan="3"><input type="text" name="contact" class="txt" size="30" value="{$contact['contact']}">
+    填写客服专员姓名，显示在会员中心及联系方式页面</td>
+  </tr>
+  <tr>
+    <td align="right">客户服务热线：</td>
+    <td colspan="3"><input type="text" name="telephone" class="txt" size="30" value="{$contact['telephone']}">
+    填写客服热线电话，显示在首页TOP及底部网站版权位置</td>
+  </tr>
+  <tr>
+    <td align="right">客户服务传真：</td>
+    <td colspan="3"><input type="text" name="fax" class="txt" size="30" value="{$contact['fax']}">
+    填写客服传真号码，显示在联系方式相关页面</td>
+  </tr>
+  <tr>
+    <td align="right">客户服务手机：</td>
+    <td colspan="3"><input type="text" name="mobilephone" class="txt" size="30" value="{$contact['mobilephone']}">
+    填写客服传真号码，显示在联系方式相关页面</td>
+  </tr>
+  <tr>
+    <td align="right">网站联系地址：</td>
+    <td colspan="3"><input type="text" name="address" class="txt" size="30" value="{$contact['address']}">
+    填写联系地址，显示在底部网站版权位置及联系方式页面</td>
+  </tr>
+  <tr>
+    <td colspan="4" align="right" class="tdpage"><input name="tag" type="hidden" id="tag" value="contact" />
+      <input type="submit" name="submit" value=" 保 存 " class="inputs" /></td>
+    </tr>
+  </form>
+</table>
+{/nocache}
+{include file="admin/footer.html"}
+</body>
+</html>

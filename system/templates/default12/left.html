@@ -1,0 +1,8 @@
+	<div class="left">
+    	<h2>{$left_title}</h2>
+        <ul>
+        {foreach from=$left_menu item=value}
+        	<li><a href="{$value['url']}">{$value['catname']}</a></li>
+        {/foreach}
+        </ul>
+    </div>

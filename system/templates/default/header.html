@@ -1,0 +1,82 @@
+<div id="header">
+	<div id="top" style="width: 946px; height: 8px; background: url('{$image_path}topm.png') repeat-x scroll center top transparent; float: left;">
+		<div style="width: 8px; height: 8px; background: url('{$image_path}topl.png') no-repeat scroll left top transparent; float: left;"></div>
+		<div style="width: 8px; height: 8px; background: url('{$image_path}topr.png') no-repeat scroll left top transparent; float: right;"></div>
+	</div>
+	<div style="width: 190px; height: 48px; top: 10px; left: 31px; position: relative; float: left;">
+		<a href="/" title="{$config['title']}">
+			<img alt="{$config['title']}" src="{$config['logourl']}" border="0">
+		</a>
+	</div>
+	<!--<div style="width: 176px; height: 46px; top: 10px; left: 321px; position: relative; float: left;padding-left:-25px">
+		<img src="{$image_path}service_tel.jpg" border="0">
+	</div>
+-->
+	<div style="width: 250px; margin-top: 10px; float: right;">
+		<div style="width: 210px; height: 23px; text-align: left; margin-bottom: 8px; float: left;">
+		<a href="index.php?m=content&c=index&f=lists&catid=35">加入北信</a> | <a href="index.php?m=content&c=index&f=lists&catid=33">联系我们</a></div>
+		<div id="searchBox">
+		
+		
+		 <form id="search" name="search" method="get" action="index.php">
+            <label>
+            <input type="text" name="key" id="key" class="key" />
+            </label>
+            <label>
+			
+            <!--<input type="submit" name="button" id="button" value="搜索" class="submit" />-->
+			<input src="{$image_path}search2.png" align="bottom" name="button" id="button" class="submit" type="image">
+            <input name="m" type="hidden" id="m" value="content" />
+            <input name="c" type="hidden" id="c" value="index" />
+            <input name="f" type="hidden" id="f" value="search" />
+            <input name="catid" type="hidden" id="catid" value="3" />
+            </label>
+          </form>
+		  
+		  
+		
+		</div>
+	</div>
+	
+<ul id="topNav">
+	<li class="topNav_li1"><a class="tag1" href="/">首页</a></li>
+	{foreach from=$menu item=value}
+			
+			
+        
+		{if $value['catname']!='新闻资讯'}
+		<li {if $value['catname']=='关于北信'} class="topNav_li3"{else} class="topNav_li2" {/if}><a {if $value['catname']=='关于北信'}class="tag3"{else}class="tag2"{/if} {if $value['catname']=='解决方案'} href="index.php?m=content&c=index&f=lists&catid=38"{else if $value['catname']=='关于北信'}href="index.php?m=content&c=index&f=lists&catid=8" {else} href="{$value['url']}"{/if} {if $value['is_target']==1}target="_blank"{/if}>{$value['catname']}</a>
+		<div class="menuDiv1" >
+			<div style="width: 168px;  background: none repeat scroll 0% 0% rgb(227, 228, 229); padding-left: 10px; float: left;">
+				<ul class="menuUl">
+				{if $value['catname']=='产品中心'}
+				
+				
+					<li class="menuUl_li2"><a href="index.php?m=content&c=index&f=show&catid=3&contentid=51">云存储系统</a></li>
+<li class="menuUl_li2"><a href="index.php?m=content&c=index&f=show&catid=3&contentid=52">数据挖掘云平台</a></li>					
+           	
+							
+						
+				
+				{else}
+
+				 {loop sql="SELECT *  from {$pre}category where parentid={$value['catid']} and is_show =1 order by sort asc" }
+					<li class="menuUl_li2"><a  href="{$r.url}">{$r.catname}</a></li>
+					{loop sql="SELECT *  from {$pre}category where parentid={$r['catid']} and is_show =1 order by sort asc" }
+					<li class="menuUl_li3"><a href="{$r.url}">{$r.catname} </a></li>
+		           	{/loop}
+           	
+				{/loop}		
+				     {/if}   
+				</ul>
+			</div>
+		
+		</div>
+	</li>
+	{/if}
+   
+	{/foreach}
+	
+	
+</ul>
+</div>

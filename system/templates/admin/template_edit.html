@@ -1,0 +1,37 @@
+{include file="admin/top.html"}
+{nocache}
+<table width="100%" border="0" align="center" cellpadding="2" cellspacing="1" class="tableBorder">
+  <tr>
+    <th height="25">模板管理</th>
+  </tr>
+  <tr>
+    <td height=25 class="pl20"><b>管理选项：</b><a href="index.php?m=91736&c=template">管理首页</a> | <a href="index.php?m=91736&c=template&f=calls">模板调用说明</a>&nbsp;|&nbsp;[<a href="javascript:location.reload()">刷新页面</a>]</td>
+  </tr>
+</table>
+<table width="100%" border="0" align="center" cellspacing="1" cellpadding="2" class="tableBorder mt6">
+<form name="addform" action="index.php?m=91736&c=template&f=edit_save" method="post">
+    <tr>
+    <th colspan="4">模板编辑</th>
+  </tr>
+  <tr>
+    <td width="19%" align="right">模板地址：</td>
+    <td width="81%" colspan="3">{$filename}</td>
+  </tr>
+  
+  <tr>
+    <td align="right">源代码:</td>
+    <td colspan="3"><label>
+      <textarea name="content" id="content" cols="85" rows="35">{$content}</textarea>
+    </label></td>
+  </tr>
+  <tr>
+    <td colspan="4" class="tdpage">
+      <input type="submit" name="submit" value=" 保 存 " class="inputs" />
+      <input name="file" type="hidden" id="file" value="{$filename}" /></td>
+    </tr>
+  </form>
+</table>
+{/nocache}
+{include file="admin/footer.html"}
+</body>
+</html>
